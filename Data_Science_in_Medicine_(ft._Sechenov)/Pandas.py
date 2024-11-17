@@ -19,4 +19,19 @@ countries_df = pd.DataFrame(
 countries_df.to_csv('data/countries_df.csv', index=False, sep=';')
 melb_data = pd.read_csv('data/melb_data.csv', sep=',')
 
-print(melb_data[15], ['Price'])
+melb_data['Car'] = melb_data['Car'].astype('int64')
+melb_data['Bedroom'] = melb_data['Bedroom'].astype('int64')
+melb_data['Bathroom'] = melb_data['Bathroom'].astype('int64')
+melb_data['Propertycount'] = melb_data['Propertycount'].astype('int64')
+melb_data['YearBuilt'] = melb_data['YearBuilt'].astype('int64')
+
+print(melb_data['Type'].value_counts(normalize=True))
+
+# df.info()
+# df.describe(include=['type'])
+# select_dtypes(include=['type'])
+# df.shape
+# df.head()
+# df.tail()
+# df.astype(type)
+# value_counts(normalize=True)
