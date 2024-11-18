@@ -25,7 +25,12 @@ melb_data['Bathroom'] = melb_data['Bathroom'].astype('int64')
 melb_data['Propertycount'] = melb_data['Propertycount'].astype('int64')
 melb_data['YearBuilt'] = melb_data['YearBuilt'].astype('int64')
 
-print(melb_data['Type'].value_counts(normalize=True))
+filtered_data = melb_data[melb_data['Price'] < 10**6]
+filtered_data = filtered_data[(filtered_data['Rooms'] > 5) | (filtered_data['YearBuilt'] > 2015)]
+average_price = filtered_data['Price'].mean()
+print(average_price)
+
+# print(melb_data.info())
 
 # df.info()
 # df.describe(include=['type'])
@@ -35,3 +40,6 @@ print(melb_data['Type'].value_counts(normalize=True))
 # df.tail()
 # df.astype(type)
 # value_counts(normalize=True)
+
+# & - конъюнкция
+# | - дизъюнкция
